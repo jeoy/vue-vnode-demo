@@ -23,7 +23,20 @@
     }
 })
 
+[{
+    "name": "第一个"
+}, {
+    "name": "第二个"
+}, {
+    "name": "第三个"
+}]
 
+
+[{
+    "name": "第二个"
+}, {
+    "name": "第三个"
+}]
 
 ƒ(item, index) {
     return _c("comp-child", {

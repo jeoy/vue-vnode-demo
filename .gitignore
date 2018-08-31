@@ -1,0 +1,14 @@
+.idea
+.vs
+.vscode
+node_modules
+npm-debug.log
+debug.log
+.jsbeautify*
+test/unit/coverage
+dist/
+source/test/unit/coverage
+source/dist
+.dist
+.idea/
+newCss/main/main.js

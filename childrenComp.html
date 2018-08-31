@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+        <div><component v-for="(item, index) in arr" is="comp-child" :key="index" :parent-data="item">
+                <button @click="deleteItem(index)">delete</button>
+            </component>
+            </div>
+    </div>
+    <script src="./node_modules/vue/dist/vue.js"></script>
+    <!-- <script src="./vue.js"></script> -->
+    <script>
+        Vue.component('comp-child', {
+            template: `<div>{{childData.name}}<slot></slot>{{randomNum}}</div>`,
+            props: {
+                parentData: {
+                }
+            },
+            data() {
+                return {
+                    childData: {},
+                    randomNum: Math.round(Math.random() * 100)
+                };
+            },
+            created() {
+                this.childData.name = this.parentData.name;
+            }
+        });
+        let vm = new Vue({
+            el: '#app',
+            data(){
+                return {
+                    arr: [{
+                        name:'第一个'
+                    }, {
+                        name:'第二个'
+                    }, {
+                        name:'第三个'
+                    }]
+                };
+            },
+            methods: {
+                deleteItem(index) {
+                    this.arr.splice(index, 1);
+                }
+            }
+        });
+    </script>
+</body>
+</html>

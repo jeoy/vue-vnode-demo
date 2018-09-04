@@ -9,11 +9,12 @@
 <body>
     <div id="app">
         <p>firstName: {{firstName}}</p>
-        <li v-for="(item,index) in todoList"  :key="index" >{{item.name}}</li>
+        <li v-for="(item,index) in todoList"  >{{item.name}}</li>
     </div>
-    <script src="./node_modules/vue/dist/vue.js"></script>
-    <!-- <script src="./vue.js"></script> -->
-    <script src="./template2Vnode.js"></script>
+
+    <!-- <script src="./node_modules/vue/dist/vue.js"></script> -->
+
+    <script src="./vue-custom.js"></script>
     <script>
         let vm = new Vue({
             el: '#app',
@@ -28,18 +29,6 @@
                         name: '第三个'
                     }]
                 };
-            },
-            computed: {
-                fullName: {
-                    get: function() {
-                        return this.lastName + ' ' + this.firstName;
-                    },
-                    set: function(val) {
-                        let arr = val.split(' ');
-                        this.lastName = arr[0];
-                        this.firstName = arr[1];
-                    }
-                }
             }
         });
     </script>
